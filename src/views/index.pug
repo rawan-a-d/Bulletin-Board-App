@@ -1,0 +1,58 @@
+doctype html
+html
+  head
+    style
+      //- we link in the CDN-css files here
+      include ../public/css/bootstrap.min.css
+      //- Optional theme
+      include ../public/css/bootstrap-theme.min.css
+      //- This is my css file
+      include ../public/css/main.css
+    style.
+      body{
+       background-color: #525252;
+      }
+      .centered-form{
+       margin-top: 60px;
+      }
+      .centered-form .panel{
+       background: rgba(255, 255, 255, 0.8);
+       box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+      }
+  body
+    .container
+      header
+        //- NAVIGATION
+        nav.navbar.navbar-inverse.navbar-fixed-top
+          .container.navi
+              ul.nav.navbar-nav
+                li
+                  a(href='/')
+                    | Send messages
+                li
+                  a(href='messages')
+                    | Display messages
+    .container
+      .row.centered-form
+        .col-xs-12.col-sm-8.col-md-4.col-sm-offset-2.col-md-offset-4
+          .panel.panel-default
+            .panel-heading
+              h2.panel-title.text-center <big>Send a MSG</big>
+            .panel-body
+              form(action='/' method='post')
+                .row
+                  .col-xs-12.col-sm-12.col-md-12
+                    .form-group
+                      input#title.form-control.input-sm(type='text', name='title', placeholder='Subject')
+                .row
+                  .col-xs-12.col-sm-12.col-md-12
+                    .form-group
+                      textarea#message.form-control.text(type='text', rows='5', name='body', placeholder='Write your message here!!')
+                .row
+                  .col-xs-12.col-sm-12.col-md-12
+                    .form-group
+                      input.btn.btn-info.btn-block(id='myButton', type='submit', value='Send')
+      //- JavaScript should be linked at the bottom of the page
+    script
+     include ../public/js/jquery.min.js
+     include ../public/js/bootstrap.min.js

@@ -1,0 +1,32 @@
+doctype html
+html
+	head
+		style
+			//- we link in the CDN-css files here
+			include ../public/css/bootstrap.min.css
+			//- Optional theme
+			include ../public/css/bootstrap-theme.min.css
+			//- This is my css file
+			include ../public/css/main.css
+	body
+		.container
+			header
+				//- NAVIGATION
+				nav.navbar.navbar-inverse.navbar-fixed-top
+					.container.navi
+						ul.nav.navbar-nav
+							li
+								a(href='/')
+									| Send messages
+							li
+								a(href='messages')
+									| Display messages
+		.container
+			.row
+				.col-xs-12
+					.well.text-center
+						each message in messages
+							h2 #{message.title} : #{message.body}
+		script
+			include ../public/js/jquery.min.js
+			include ../public/js/bootstrap.min.js
